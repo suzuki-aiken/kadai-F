@@ -7,11 +7,15 @@
 <body>
 <p>Simple BBS</p>
 <form action="/" method="POST">
-    UserName: <input type="text" name="username">
+    Username: <input type="text" name="username">
+    <br>
+    Message: <input type="text" name="message">
     <input type="submit">
 </form>
 {% if username %}
-<p>こんにちは {{username}}さん</p>
+<hr>
+<p>{{username}}{% endif %}{% if message %}:{{message}}</p>
 {% endif %}
+
 </body>
 </html>

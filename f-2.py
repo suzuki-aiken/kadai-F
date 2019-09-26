@@ -40,7 +40,8 @@ def index():
 
     if request.method == 'POST':
         username = request.form['username']
-        return render_template('index.html', username=username)
+        message = request.form['message']
+        return render_template('index.html', username=username, message=message)
 
 
 if __name__ == '__main__':

@@ -49,7 +49,7 @@ def index():
         message = request.form['message']
         name_message.append(f'{username}:{message}')
         # return render_template('index.html', name_message=name_message)
-        return redirect("/")
+        return redirect("/")  # 相対パス
 
 
 if __name__ == '__main__':

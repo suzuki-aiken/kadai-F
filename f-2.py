@@ -28,20 +28,28 @@ https://simple-bbs.herokuapp.com でいくつか投稿を試し、どういう�
     usernameが空欄の場合　名無しさんと表示される
     messageが空欄の場合　空文字列を返す
 """
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
+name_message = []
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('index.html', message_list=name_message)
+
+    # if request.method == 'POST':
+    #     username = request.form['username']
+    #     message = request.form['message']
+    #     return render_template('index.html', username=username, message=message)
 
     if request.method == 'POST':
         username = request.form['username']
         message = request.form['message']
-        return render_template('index.html', username=username, message=message)
+        name_message.append(f'{username}:{message}')
+        # return render_template('index.html', name_message=name_message)
+        return redirect("/")
 
 
 if __name__ == '__main__':

@@ -12,10 +12,10 @@
     Message: <input type="text" name="message">
     <input type="submit">
 </form>
-{% if username %}
+{% for i in message_list %}
 <hr>
-<p>{{username}}{% endif %}{% if message %}:{{message}}</p>
-{% endif %}
+<p>{{i}}</p>
+{% endfor %}
 
 </body>
 </html>
